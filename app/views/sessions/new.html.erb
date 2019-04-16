@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-header-title">Log in</h2>
+  </div>
+  <div class="card-content">
+    <%= form_for :user, url: new_session_path do |f| %>
+    <div class="field">
+      <%= f.label :username, "Username or email address", class: 'label' %>
+      <div class=" control has-icons-left">
+        <%= f.text_field :username, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :password, "Password", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.password_field :password, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button type="submit" class="button is-success">Log in</button>
+      </div>
+    </div>
+    <% end %>
+    <p class="sign-up--link is-size-7">New user? Create your account <a href="<%= new_user_path %>">here</a></p>
+  </div>
+</div>

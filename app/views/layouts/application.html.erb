@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Petsy</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="<%= root_path %>" class="navbar-item">
+        <span>Petsy</span>
+        <span class="icon">
+          <i class="fa fa-paw"></i>
+        </span>
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+        data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+
+      </div>
+
+      <div class="navbar-end">
+
+        <% if user_signed_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">
+            <span>Hello <strong><%= current_user.username %></strong></span>
+          </div>
+
+          <div class="navbar-dropdown">
+            <a href="<%= profile_path %>" class="navbar-item">Profile</a>
+            <a href="<%= destroy_session_path %>" data-method="delete" class="navbar-item has-text-danger">Logout</a>
+          </div>
+        </div>
+        <% else %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="<%= new_user_path %>" class="button is-light">
+              <strong>Sign up</strong>
+            </a>
+            <a href="<%= new_session_path %>" class="button is-info">
+              Log in
+            </a>
+          </div>
+        </div>
+        <% end %>
+        <a href="#" class="navbar-item">
+          <span class="icon">
+            <i class="fa fa-github"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <% if flash[:success] %>
+      <div class="notification is-info"><%= flash[:success] %></div>
+      <% elsif flash[:danger] %>
+      <div class="notification is-danger"><%= flash[:danger] %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </section>
+</body>
+
+</html>

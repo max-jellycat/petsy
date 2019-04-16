@@ -1,0 +1,7 @@
+Hello <%= @user.username %>,
+
+Thank you for your registration on <%= Rails.application.config.site[:name] %> !
+
+Please confirm your account by clicking on the link below.
+
+<%= confirm_user_url(id: @user.id, token: @user.confirmation_token) %>
