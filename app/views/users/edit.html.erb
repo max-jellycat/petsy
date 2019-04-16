@@ -8,41 +8,52 @@
 </div>
 <% end %>
 
-<div class="card">
-  <div class="card-header">
-    <h2 class="card-header-title">Sign up</h2>
-  </div>
-  <div class="card-content">
-    <%= form_for @user, url: profile_path do |f| %>
-    <div class="field">
-      <%= f.label :username, "Username", class: 'label' %>
-      <div class=" control">
-        <%= f.text_field :username, class: 'input' %>
-      </div>
-    </div>
-    <div class="field">
-      <%= f.label :email, "Email address", class: 'label' %>
-      <div class="control">
-        <%= f.email_field :email, class: 'input' %>
-      </div>
-    </div>
-    <div class="field">
-      <%= f.label :password, "Password", class: 'label' %>
-      <div class="control">
-        <%= f.password_field :password, class: 'input' %>
-      </div>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation, "Password confirmation", class: 'label' %>
-      <div class="control">
-        <%= f.password_field :password_confirmation, class: 'input' %>
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <button type="submit" class="button is-success">Submit</button>
-      </div>
-    </div>
-    <% end %>
+<h2 class="title">Edit your profile</h2>
+
+<%= form_for @user, url: profile_path do |f| %>
+<div class="field">
+  <%= f.label :username, "Username", class: 'label' %>
+  <div class=" control">
+    <%= f.text_field :username, class: 'input' %>
   </div>
 </div>
+<div class="field">
+  <%= f.label :email, "Email address", class: 'label' %>
+  <div class="control">
+    <%= f.email_field :email, class: 'input' %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label :first_name, "First name", class: 'label' %>
+  <div class=" control">
+    <%= f.text_field :first_name, class: 'input' %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label :last_name, "Last name", class: 'label' %>
+  <div class=" control">
+    <%= f.text_field :last_name, class: 'input' %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label :avatar_file, "Avatar", class: 'label' %>
+  <div class="file">
+    <label class="file-label">
+      <%= f.file_field :avatar_file, class: 'file-input' %>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Upload an avatar...
+        </span>
+      </span>
+    </label>
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <button type="submit" class="button is-success">Submit</button>
+  </div>
+</div>
+<% end %>

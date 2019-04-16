@@ -37,5 +37,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    user_params = params.require(:user).permit(:username, :first_name, :last_name, :email, :avatar_file)
+    if @user.update(user_params)
+      redirect_to profile_path, success: 'Your account has been updated'
+    else
+      redirect_to 'edit'
+    end
   end
 end

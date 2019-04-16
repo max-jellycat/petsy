@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  attr_accessor :avatar_file
+
   has_secure_password
   has_secure_token :confirmation_token
 
