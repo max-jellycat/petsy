@@ -39,6 +39,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bulma-rails'
 gem 'font-awesome-rails'
 
+# Image treatment               
+gem 'mini_magick', '~> 4.9', '>= 4.9.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

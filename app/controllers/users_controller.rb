@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to profile_path, success: 'Your account has been updated'
     else
-      redirect_to 'edit'
+      render 'edit'
     end
   end
 end
