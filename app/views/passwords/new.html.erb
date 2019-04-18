@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-header-title">Password recovery</h2>
+  </div>
+  <div class="card-content">
+    <%= form_for :user, url: passwords_path do |f| %>
+    <div class="field">
+      <%= f.label :email, "Email address", class: 'label' %>
+      <div class=" control has-icons-left">
+        <%= f.email_field :email, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button type="submit" class="button is-info">Submit</button>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

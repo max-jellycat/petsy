@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources 'passwords', only: [:new, :create, :edit, :update]
+
   get '/profile' => 'users#edit', as: :profile
   patch '/profile' => 'users#update'
 

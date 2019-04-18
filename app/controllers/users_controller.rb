@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     user_params = params.require(:user).permit(:username, :email, :password, :password_confirmation)
     @user = User.new(user_params)
+    @user.recover_password = nil
 
     if@user.valid?
       @user.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_085050) do
+ActiveRecord::Schema.define(version: 2019_04_18_142423) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_085050) do
     t.boolean "avatar", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "recover_password"
   end
 
 end

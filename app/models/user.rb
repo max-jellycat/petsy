@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_secure_password
   has_secure_token :confirmation_token
+  has_secure_token :recover_password
 
   before_save :avatar_before_upload
   after_destroy_commit :avatar_destroy
@@ -28,11 +29,11 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-      "/" + [
-        self.class.name.downcase.pluralize,
-        id.to_s,
-        "avatar.jpg"
-      ].join('/')
+    "/" + [
+      self.class.name.downcase.pluralize,
+      id.to_s,
+      "avatar.jpg"
+    ].join('/')
   end
 
   private

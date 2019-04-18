@@ -1,0 +1,37 @@
+<% if @user.errors.any? %>
+<div class="notification is-danger">
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-header-title">Password reinitialization</h2>
+  </div>
+  <div class="card-content">
+    <%= form_for :user, url: password_path(@user.id), method: 'put' do |f| %>
+    <%= f.hidden_field :recover_password %>
+    <div class="field">
+      <%= f.label :password, "Password", class: 'label' %>
+      <div class="control">
+        <%= f.password_field :password, class: 'input' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, "Password confirmation", class: 'label' %>
+      <div class="control">
+        <%= f.password_field :password_confirmation, class: 'input' %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button type="submit" class="button is-success">Submit</button>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
