@@ -1,0 +1,56 @@
+<% content_for :content do %>
+<div class="pets">
+  <div class="pets-header">
+    <h1 class="title">My pets</h1>
+    <a href="<%= new_pet_path %>" class="button is-warning">
+      <span class="icon">
+        <i class="fa fa-plus"></i>
+      </span>
+      <span>Add a pet</span>
+    </a>
+  </div>
+  <table class="pets-table table is-striped is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Species</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pets.each do |pet| %>
+      <tr>
+        <td></td>
+        <td><%= pet.name %></td>
+        <td><%= pet.get_gender %></td>
+        <td><%= pet.get_age %> years old</td>
+        <td><%= pet.get_species %></td>
+        <td>
+          <a class="button is-dark" href="<%= pet_path(pet.id) %>">
+            <span class="icon">
+              <i class="fa fa-search"></i>
+            </span>
+          </a>
+          <a class="button is-dark" href="<%= edit_pet_path(pet.id) %>">
+            <span class="icon">
+              <i class="fa fa-pencil"></i>
+            </span>
+          </a>
+          <a class="button is-danger" href="<%= pet_path(pet.id) %>" data-method="delete">
+            <span class="icon">
+              <i class="fa fa-trash"></i>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
+
+<%= render template: 'layouts/sidebar' %>

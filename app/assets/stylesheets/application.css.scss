@@ -18,8 +18,10 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import 'sidebar';
 @import 'users';
 @import 'sessions';
+@import 'pets';
 
 $family-sans-serif: "Raleway" !default;
 
@@ -38,4 +40,9 @@ body {
       margin-left: 0.5rem;
     }
   }
+}
+
+.button {
+  text-transform: uppercase;
+  font-weight: bold;
 }

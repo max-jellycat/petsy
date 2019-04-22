@@ -1,0 +1,31 @@
+<%= form_for pet do |f| %>
+<div class="field">
+  <%= f.label :name, "Name", class: 'label' %>
+  <div class="control">
+    <%= f.text_field :name, class: 'input' %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label :species_id, 'Species', class: 'label' %>
+  <div class="select">
+    <%= f.select :species_id, Species.pluck(:name, :id) %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label :gender, 'Gender', class: 'label' %>
+  <div class="select">
+    <%= f.select :gender,{ Male: :M, Female: :F, Hermaphrodite: :H } %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label :birthday, "Birth date", class: 'label' %>
+  <div class="control">
+    <%= f.date_select :birthday, class: 'input' %>
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <button type="submit" class="button is-success"><%= pet.new_record? ? 'Submit' : 'Edit' %></button>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,13 @@
+.sidebar {
+  .list {
+    &-item {
+      background-color: #fff;
+      text-transform: uppercase;
+      color: #353535;
+
+      &:hover {
+        background-color: #f4f4f4;
+      }
+    }
+  }
+}

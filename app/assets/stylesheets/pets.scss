@@ -1,0 +1,22 @@
+.pets {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3rem;
+
+    .title {
+      margin: 0;
+    }
+  }
+
+  &-table {
+    td {
+      vertical-align: middle;
+    }
+
+    .button {
+      border-radius: 50%;
+    }
+  }
+}

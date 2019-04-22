@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   root 'users#new'
-  resources 'users', only: [:new, :create, :edit] do
+  resources :users, only: [:new, :create, :edit] do
     member do
       get 'confirm'
     end
   end
 
-  resources 'passwords', only: [:new, :create, :edit, :update]
+  resources :passwords, only: [:new, :create, :edit, :update]
+
+  resources :pets
 
   get '/profile' => 'users#edit', as: :profile
   patch '/profile' => 'users#update'

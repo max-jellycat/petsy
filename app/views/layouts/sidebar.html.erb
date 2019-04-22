@@ -1,0 +1,21 @@
+<div class="sidebar columns">
+  <div class="column is-8">
+    <%= yield(:content) %>
+  </div>
+  <div class="column is-3 is-offset-1">
+    <div class="list is-hoverable">
+      <a href="<%= pets_path %>" class="list-item">
+        <span class="icon">
+          <i class="fa fa-paw"></i>
+        </span>
+        <span>My pets</span>
+      </a>
+      <a href="<%= profile_path %>" class="list-item">
+        <span class="icon">
+          <i class="fa fa-user"></i>
+        </span>
+        <span>My profile</span>
+      </a>
+    </div>
+  </div>
+</div>
