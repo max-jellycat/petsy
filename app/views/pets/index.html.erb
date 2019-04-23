@@ -1,3 +1,5 @@
+<% content_for :tab, :pets %>
+
 <% content_for :content do %>
 <div class="pets">
   <div class="pets-header">
@@ -24,10 +26,10 @@
     <tbody>
       <% @pets.each do |pet| %>
       <tr>
-        <td></td>
+        <td><%= image_tag pet.avatar_url, class: 'pets-table--avatar' %></td>
         <td><%= pet.name %></td>
         <td><%= pet.get_gender %></td>
-        <td><%= pet.get_age %> years old</td>
+        <td><%= pet.get_age %> <%= 'year'.pluralize(pet.get_age) %> old</td>
         <td><%= pet.get_species %></td>
         <td>
           <a class="button is-dark" href="<%= pet_path(pet.id) %>">

@@ -1,3 +1,4 @@
+<% content_for :tab, :profile %>
 <% content_for :content do %>
 <% if @user.errors.any? %>
 <div class="notification is-danger">
@@ -38,7 +39,7 @@
 </div>
 <div class="field">
   <%= f.label :avatar_file, "Avatar", class: 'label' %>
-  <div class="file">
+  <div class="file has-name is-fullwidth">
     <label class="file-label">
       <%= f.file_field :avatar_file, class: 'file-input' %>
       <span class="file-cta">
@@ -49,6 +50,7 @@
           Upload an avatar...
         </span>
       </span>
+      <span class="file-name"></span>
     </label>
   </div>
 </div>

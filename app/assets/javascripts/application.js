@@ -13,4 +13,22 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require flatpickr
 //= require_tree .
+//= require_self
+
+document.addEventListener('DOMContentLoaded', () => {
+  flatpickr('.form-datepicker', {
+    altInput: true,
+    altFormat: 'F J, Y',
+    maxDate: new Date()
+  })
+
+  const files = document.querySelectorAll('.file-input')
+  files.forEach(file => {
+    file.addEventListener('change', () => {
+      if (file.files.length > 0)
+        document.querySelector('.file-name').innerHTML = file.files[0].name
+    })
+  })
+})

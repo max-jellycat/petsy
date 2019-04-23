@@ -4,13 +4,13 @@
   </div>
   <div class="column is-3 is-offset-1">
     <div class="list is-hoverable">
-      <a href="<%= pets_path %>" class="list-item">
+      <a href="<%= pets_path %>" class="list-item <%= yield(:tab) == 'pets' ? 'is-active' : '' %>">
         <span class="icon">
           <i class="fa fa-paw"></i>
         </span>
         <span>My pets</span>
       </a>
-      <a href="<%= profile_path %>" class="list-item">
+      <a href="<%= profile_path %>" class="list-item <%= yield(:tab) == 'profile' ? 'is-active' : '' %>">
         <span class="icon">
           <i class="fa fa-user"></i>
         </span>

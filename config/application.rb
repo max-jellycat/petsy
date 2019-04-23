@@ -24,5 +24,7 @@ module Petsy
       g.helper false
       g.jbuilder false
     end
+
+    config.assets.paths << Rails.root.join('lib', 'assets', 'lib')
   end
 end

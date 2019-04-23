@@ -8,6 +8,10 @@
       &:hover {
         background-color: #f4f4f4;
       }
+
+      &.is-active {
+        background-color: hsl(48, 100%, 67%);
+      }
     }
   }
 }

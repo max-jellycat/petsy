@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bulma-rails'
 gem 'font-awesome-rails'
+gem 'flatpickr', '~> 4.5', '>= 4.5.2.0'
 
 # Image treatment               
 gem 'mini_magick', '~> 4.9', '>= 4.9.3'

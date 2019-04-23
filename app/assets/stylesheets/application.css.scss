@@ -12,12 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require flatpickr
  */
 
 @import 'bulma';
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import 'variables';
 @import 'sidebar';
 @import 'users';
 @import 'sessions';

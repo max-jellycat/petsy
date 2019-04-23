@@ -1,16 +1,12 @@
 class User < ApplicationRecord
 
-  attr_accessor :avatar_file
-
   has_many :pets
 
   has_secure_password
   has_secure_token :confirmation_token
   has_secure_token :recover_password
 
-  before_save :avatar_before_upload
-  after_destroy_commit :avatar_destroy
-  after_save :avatar_after_upload
+  has_image :avatar
 
   validates :username,
     format: { with: /\A[a-zA-Z0-9]{2,20}\z/, message: 'must only contain alphanumerical characters' },
@@ -19,12 +15,16 @@ class User < ApplicationRecord
   validates :email,
     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ },
     uniqueness: { case_sensitive: false }
-  
-  validates :avatar_file, file: { ext: [:jpg, :png, :gif] } 
 
   def to_session
     { user_id: id }
   end
+=begin
+  attr_accessor :avatar_file
+  validates :avatar_file, file: { ext: [:jpg, :png, :gif] } 
+  before_save :avatar_before_upload
+  after_destroy_commit :avatar_destroy
+  after_save :avatar_after_upload
 
   def avatar_path
     File.join(Rails.public_path, self.class.name.downcase.pluralize, id.to_s, "avatar.jpg")
@@ -65,5 +65,6 @@ class User < ApplicationRecord
     dir = File.dirname(avatar_path)
     FileUtils.rm_r(dir) if Dir.exist? dir
   end
+=end
 
 end
